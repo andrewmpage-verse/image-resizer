@@ -4,6 +4,7 @@ namespace verbb\imageresizer\services;
 use verbb\imageresizer\ImageResizer;
 
 use Craft;
+use craft\helpers\App;
 use craft\base\Component;
 use craft\base\Image;
 use craft\base\LocalVolumeInterface;
@@ -89,7 +90,11 @@ class Resize extends Component
 
             // Lets check to see if this image needs resizing. Split into two steps to ensure
             // proper aspect ratio is preserved and no upscaling occurs.
-            $hasResized = false;
+            if (App::env('IMAGE_RESIZE_FORCE_COMPRESSION')) {
+                $hasResized = true;
+            } else {
+                $hasResized = false;
+            }
 
             if ($image->getWidth() > $imageWidth) {
                 $hasResized = true;

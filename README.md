@@ -4,6 +4,8 @@
 
 Image Resizer is a Craft plugin that resizes your assets when they are uploaded. This allows huge images to be resized so as not to use up unnecessary disk space, but still kept at a reasonable resolution. This plugin is not a replacement for using image transforms throughout your site.
 
+-- Modified by Verse for auto image compression
+
 ## Features
 
 - Automatically resize your asset on-upload, or on-demand.
